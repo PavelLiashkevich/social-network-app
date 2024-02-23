@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-
 import logo from '../../assets/logo/logo.svg'
+
 import { FlexContainer } from '../FlexContainer'
+import { MyPosts } from './myPosts/MyPosts'
 
 export const Main = () => {
 	return (
@@ -16,17 +17,7 @@ export const Main = () => {
 				<img src={logo} alt='Avatar' />
 				<h4>Description</h4>
 			</FlexContainer>
-			<div>
-				My Posts
-				<div>New Post</div>
-				<div>
-					<div>Post 1</div>
-					<div>Post 2</div>
-					<div>Post 3</div>
-					<div>Post 4</div>
-					<div>Post 5</div>
-				</div>
-			</div>
+			<MyPosts />
 		</StyledMain>
 	)
 }

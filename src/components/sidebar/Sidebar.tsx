@@ -1,16 +1,19 @@
+import { NavLink } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 export const Sidebar = () => {
+
+
 	return (
 		<StyledSidebar>
 			<h2>Sidebar</h2>
-
 			<ul>
 				<li>
-					<a href='/profile'>Profile</a>
+					<StyledLink to='/profile'>Profile</StyledLink>
 				</li>
 				<li>
-					<a href='/dialogs'>Messages</a>
+					<StyledLink to='/dialogs'>Messages</StyledLink>
 				</li>
 				<li>
 					<a href='#'>News</a>
@@ -32,4 +35,8 @@ const StyledSidebar = styled.aside`
 	height: 100vh;
 	padding: 52px 0;
 	text-align: center;
+`
+
+const StyledLink = styled(NavLink)`
+	color: white;
 `

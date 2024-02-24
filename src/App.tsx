@@ -19,9 +19,6 @@ function App() {
 							<Route path='/profile' element={<Main />} />
 							<Route path='/dialogs' element={<Dialogs />} />
 						</Routes>
-
-						{/*<Main />*/}
-						{/*<Dialogs />*/}
 					</FlexContainer>
 				</Container>
 			</div>

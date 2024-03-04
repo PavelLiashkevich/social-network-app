@@ -5,6 +5,7 @@ import { Sidebar } from './components/sidebar/Sidebar'
 import { Main } from './components/main/Main'
 import { Dialogs } from './components/dialogs/Dialogs'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { PATH } from '../src/components/sidebar/Sidebar'
 
 function App() {
 	return (
@@ -16,8 +17,8 @@ function App() {
 					<FlexContainer>
 						<Sidebar />
 						<Routes>
-							<Route path='/profile' element={<Main />} />
-							<Route path='/dialogs' element={<Dialogs />} />
+							<Route path={PATH.PATH1} element={<Main />} />
+							<Route path={PATH.PATH2} element={<Dialogs />} />
 						</Routes>
 					</FlexContainer>
 				</Container>

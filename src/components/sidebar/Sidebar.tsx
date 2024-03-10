@@ -8,6 +8,7 @@ export const PATH = {
 	PATH3: '/news',
 	PATH4: '/music',
 	PATH5: '/settings',
+	PATH6: '/*',
 } as const
 
 export const Sidebar = () => {

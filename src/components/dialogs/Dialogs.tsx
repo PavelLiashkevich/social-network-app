@@ -1,21 +1,36 @@
 import styled from 'styled-components'
+
 import { FlexContainer } from '../FlexContainer'
+import { Dialog } from './dialog/Dialog'
+import { Message } from '../message/Message'
+
+const dialogData = [
+	{ id: '1', name: 'Paul' },
+	{ id: '2', name: 'Smith' },
+	{ id: '3', name: 'Tom' },
+]
+
+const messageData = [
+	{ id: '1', message: 'Hello' },
+	{ id: '2', message: 'How are you?' },
+	{ id: '3', message: "I'm fine" },
+]
 
 export const Dialogs = () => {
 	return (
 		<StyledDialogs>
 			<FlexContainer>
 				<StyledDialogsItems>
-					<div className='dialog'>dialog1</div>
-					<div className='dialog'>dialog2</div>
-					<div className='dialog'>dialog3</div>
-					<div className='dialog'>dialog4</div>
+					<FlexContainer direction='column'>
+						{dialogData.map(dialog => (
+							<Dialog name={dialog.name} id={dialog.id} />
+						))}
+					</FlexContainer>
 				</StyledDialogsItems>
 				<StyledMessages>
-					<div className='message'>Hello</div>
-					<div className='message'>How are you?</div>
-					<div className='message'>I'm fine</div>
-					<div className='message'>I'm fine</div>
+					{messageData.map(message => (
+						<Message message={message.message} />
+					))}
 				</StyledMessages>
 			</FlexContainer>
 		</StyledDialogs>

@@ -1,12 +1,7 @@
-import React from 'react'
-import { Post } from './post/Post'
 import styled from 'styled-components'
 
-const postData = [
-	{ id: '1', message: 'It', likeCount: '31' },
-	{ id: '2', message: 'Programming', likeCount: '53' },
-	{ id: '3', message: "I'm fine", likeCount: '23' },
-]
+import { Post } from './post/Post'
+import { data } from '../../redux/data'
 
 export const MyPosts = () => {
 	return (
@@ -15,7 +10,7 @@ export const MyPosts = () => {
 			<input type='text' />
 			<StyledAddPostButton>New Post</StyledAddPostButton>
 			<div>
-				{postData.map(post => (
+				{data.profilePage.posts.map((post) => (
 					<Post message={post.message} likeCount={post.likeCount} />
 				))}
 			</div>

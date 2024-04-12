@@ -1,33 +1,40 @@
+import React from 'react'
 import styled from 'styled-components'
 
 import { Post } from './post/Post'
 import { data } from '../../redux/data'
-import { useRef } from 'react'
-import React from 'react'
 
 type MainPropsType = {
-	addPost: (id: string, message: string, likeCount: string) => void
+	addPost: (message: string) => void;
+	postText: string
 }
 
-export const MyPosts = ({ addPost }: MainPropsType) => {
-	const addNewPost = (id: string, message: string, likeCount: string) => {
-		debugger;
-		addPost(id, message, likeCount)
+export const MyPosts = ({ addPost, postText }: MainPropsType) => {
+	
+	const dataInInput = React.useRef<HTMLTextAreaElement>(null)
+	
+	const addNewPost = () => {
+		let text = dataInInput.current?.value
+
+		addPost(text ? text : '');
 	}
 
-	const dataInInput = React.useRef<HTMLInputElement>(null)
+	const onPostChange = () => {
+		let text = dataInInput.current?.value
+		console.log(text);
+	}
 
 	return (
 		<div>
 			<h2>My Posts</h2>
-			<input type='text' ref={dataInInput} />
-			{/*<StyledAddPostButton onClick={addNewPost}>New Post</StyledAddPostButton>*/}
+			<textarea ref={dataInInput} onChange={onPostChange} value={postText}/>
+			<StyledAddPostButton onClick={addNewPost}>New Post</StyledAddPostButton>
 			<div>
 				{data.profilePage.posts.map(post => (
 					<Post
 						key={post.id}
 						message={post.message}
-						likeCount={post.likeCount}
+						likeCount={post.likesCount}
 					/>
 				))}
 			</div>

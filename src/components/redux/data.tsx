@@ -1,43 +1,49 @@
-type PostType = {
-	id: string;
-	message: string;
-	likeCount: string;
-}
+import { renderTree } from "../.."
 
-type PostsType = PostType[]
+type PostType = {
+	id: string
+	message: string 
+	likesCount: string
+}
 
 type ProfilePageType = {
-	posts: PostsType;
+	posts: PostType[]
+	newPostText: string
 }
+
+// ================================
 
 type DialogType = {
-	id: string;
-	name: string;
+	id: string
+	name: string
 }
 
-type DialogsType = DialogType[];
+// ================================
 
 type MessageType = {
-	id: string;
-	message: string;
+	id: string
+	message: string
 }
 
-type MessagesType = MessageType[];
+// ================================
 
 type DialogsPageType = {
-	dialogs: DialogsType;
-	messages: MessagesType;
+	dialogs: DialogType[]
+	messages: MessageType[]
 }
 
-type DataType = ProfilePageType | DialogsPageType
-
-export const data = {
+export type RootDataType = {
+	profilePage: ProfilePageType
+	dialogsPage: DialogsPageType
+}
+export const data: RootDataType = {
 	profilePage: {
 		posts: [
-			{ id: '1', message: 'It', likeCount: '31' },
-			{ id: '2', message: 'Programming', likeCount: '53' },
-			{ id: '3', message: "I'm fine", likeCount: '23' },
+			{ id: '1', message: 'It', likesCount: '31' },
+			{ id: '2', message: 'Programming', likesCount: '53' },
+			{ id: '3', message: "I'm fine", likesCount: '23' },
 		],
+		newPostText: 'Hello',
 	},
 	
 	dialogsPage: {
@@ -54,9 +60,11 @@ export const data = {
 	}
 }
 
-export const addPost = (id: string, message: string, likeCount: string) => {
-
-	let newPost = { id, message, likeCount }
+export const addPost = (message: string ) => {
+	const newPost: PostType = { id: '22', message: message, likesCount: '0' }
 
 	data.profilePage.posts.push(newPost)
+
+	renderTree(data)
 }
+

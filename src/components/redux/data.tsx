@@ -43,7 +43,7 @@ export const data: RootDataType = {
 			{ id: '2', message: 'Programming', likesCount: '53' },
 			{ id: '3', message: "I'm fine", likesCount: '23' },
 		],
-		newPostText: 'Hello',
+		newPostText: '',
 	},
 	
 	dialogsPage: {
@@ -60,7 +60,7 @@ export const data: RootDataType = {
 	}
 }
 
-export const addPost = (message: string ) => {
+export const addPost = (message: string) => {
 	const newPost: PostType = { id: '22', message: message, likesCount: '0' }
 
 	data.profilePage.posts.push(newPost)
@@ -68,3 +68,8 @@ export const addPost = (message: string ) => {
 	renderTree(data)
 }
 
+export const updateNewPostText = (newText: string) => {
+	data.profilePage.newPostText = newText
+
+	renderTree(data)
+}

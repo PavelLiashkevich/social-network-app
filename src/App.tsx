@@ -8,7 +8,7 @@ import { Error } from './components/error/Error'
 
 import { Route, Routes } from 'react-router-dom'
 import { PATH } from '../src/components/sidebar/Sidebar'
-import { addPost, data } from './components/redux/data'
+import { data, addPost, updateNewPostText } from './components/redux/data'
 
 const App = () => {
 	return (
@@ -19,7 +19,7 @@ const App = () => {
 				<FlexContainer>
 					<Sidebar />
 					<Routes>
-						<Route path={PATH.PATH1} element={<Main addPost={addPost} postText={data.profilePage.newPostText}/>} />
+						<Route path={PATH.PATH1} element={<Main postText={data.profilePage.newPostText} addPost={addPost} updatePostText={updateNewPostText} />} />
 						<Route path={PATH.PATH2} element={<Dialogs />} />
 						{/*<Route path={PATH.PATH6} element={<Error />} />*/}
 					</Routes>

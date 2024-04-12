@@ -4,16 +4,16 @@ import { MyPosts } from './myPosts/MyPosts'
 import { ProfileInfo } from './profileInfo/ProfileInfo'
 
 type MainPagePropsType = {
-	addPost: (message: string) => void
 	postText: string
+	addPost: (message: string) => void
+	updatePostText: (newText: string) => void
 }
 
-export const Main = ({ addPost, postText }: MainPagePropsType) => {
+export const Main = ({ postText, addPost, updatePostText}: MainPagePropsType) => {
 	return (
 		<StyledMain>
 			<ProfileInfo />
-
-			<MyPosts addPost={addPost} postText={postText}/>
+			<MyPosts  postText={postText} addPost={addPost} updatePostText={updatePostText} />
 		</StyledMain>
 	)
 }

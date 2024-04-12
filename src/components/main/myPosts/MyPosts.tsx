@@ -1,33 +1,29 @@
-import React from 'react'
 import styled from 'styled-components'
 
-import { Post } from './post/Post'
 import { data } from '../../redux/data'
+import { Post } from './post/Post'
+import { ChangeEvent } from 'react'
 
 type MainPropsType = {
-	addPost: (message: string) => void;
 	postText: string
+	addPost: (message: string) => void;
+	updatePostText: (newText: string) => void;
 }
 
-export const MyPosts = ({ addPost, postText }: MainPropsType) => {
-	
-	const dataInInput = React.useRef<HTMLTextAreaElement>(null)
+export const MyPosts = ({ postText, addPost, updatePostText }: MainPropsType) => {
 	
 	const addNewPost = () => {
-		let text = dataInInput.current?.value
-
-		addPost(text ? text : '');
+		addPost(postText);
 	}
 
-	const onPostChange = () => {
-		let text = dataInInput.current?.value
-		console.log(text);
+	const onPostChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		updatePostText(event.currentTarget.value);
 	}
 
 	return (
 		<div>
 			<h2>My Posts</h2>
-			<textarea ref={dataInInput} onChange={onPostChange} value={postText}/>
+			<textarea value={postText} onChange={onPostChangeHandler} />
 			<StyledAddPostButton onClick={addNewPost}>New Post</StyledAddPostButton>
 			<div>
 				{data.profilePage.posts.map(post => (

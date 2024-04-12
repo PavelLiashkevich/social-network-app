@@ -53,3 +53,10 @@ export const data = {
 		],
 	}
 }
+
+export const addPost = (id: string, message: string, likeCount: string) => {
+
+	let newPost = { id, message, likeCount }
+
+	data.profilePage.posts.push(newPost)
+}

@@ -3,12 +3,16 @@ import styled from 'styled-components'
 import { MyPosts } from './myPosts/MyPosts'
 import { ProfileInfo } from './profileInfo/ProfileInfo'
 
-export const Main = () => {
+type MainPropsType = {
+	addPost: (id: string, message: string, likeCount: string) => void
+}
+
+export const Main = ({ addPost }: MainPropsType) => {
 	return (
 		<StyledMain>
 			<ProfileInfo />
-			
-			<MyPosts />
+
+			<MyPosts addPost={addPost} />
 		</StyledMain>
 	)
 }

@@ -1,8 +1,8 @@
-import { renderTree } from "../.."
+import { renderTree } from '../..'
 
 type PostType = {
 	id: string
-	message: string 
+	message: string
 	likesCount: string
 }
 
@@ -45,7 +45,7 @@ export const data: RootDataType = {
 		],
 		newPostText: '',
 	},
-	
+
 	dialogsPage: {
 		dialogs: [
 			{ id: '1', name: 'Paul' },
@@ -57,7 +57,7 @@ export const data: RootDataType = {
 			{ id: '2', message: 'How are you?' },
 			{ id: '3', message: "I'm fine" },
 		],
-	}
+	},
 }
 
 export const addPost = (message: string) => {

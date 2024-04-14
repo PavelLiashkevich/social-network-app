@@ -19,7 +19,16 @@ const App = () => {
 				<FlexContainer>
 					<Sidebar />
 					<Routes>
-						<Route path={PATH.PATH1} element={<Main postText={data.profilePage.newPostText} addPost={addPost} updatePostText={updateNewPostText} />} />
+						<Route
+							path={PATH.PATH1}
+							element={
+								<Main
+									postText={data.profilePage.newPostText}
+									addPost={addPost}
+									updatePostText={updateNewPostText}
+								/>
+							}
+						/>
 						<Route path={PATH.PATH2} element={<Dialogs />} />
 						{/*<Route path={PATH.PATH6} element={<Error />} />*/}
 					</Routes>

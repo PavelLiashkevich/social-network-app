@@ -6,9 +6,9 @@ import { Main } from './components/main/Main'
 import { Dialogs } from './components/dialogs/Dialogs'
 import { Error } from './components/error/Error'
 
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { PATH } from '../src/components/sidebar/Sidebar'
-import { data, addPost, updateNewPostText } from './components/redux/data'
+import { store } from './components/redux/data'
 
 const App = () => {
 	return (
@@ -19,13 +19,14 @@ const App = () => {
 				<FlexContainer>
 					<Sidebar />
 					<Routes>
+						<Route path={'/'} element={<Navigate to={PATH.PATH1} />} />
 						<Route
 							path={PATH.PATH1}
 							element={
 								<Main
-									postText={data.profilePage.newPostText}
-									addPost={addPost}
-									updatePostText={updateNewPostText}
+									postText={store._data.profilePage.newPostText}
+									addPost={store.addPost}
+									updatePostText={store.updateNewPostText}
 								/>
 							}
 						/>

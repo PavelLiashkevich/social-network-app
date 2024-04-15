@@ -4,7 +4,7 @@ import { FlexContainer } from '../FlexContainer'
 import { Dialog } from './dialog/Dialog'
 import { Message } from '../message/Message'
 
-import { data } from '../redux/data'
+import { store } from '../redux/data'
 
 export const Dialogs = () => {
 	return (
@@ -12,13 +12,13 @@ export const Dialogs = () => {
 			<FlexContainer>
 				<StyledDialogsItems>
 					<FlexContainer direction='column'>
-						{data.dialogsPage.dialogs.map(dialog => (
+						{store._data.dialogsPage.dialogs.map(dialog => (
 							<Dialog name={dialog.name} id={dialog.id} />
 						))}
 					</FlexContainer>
 				</StyledDialogsItems>
 				<StyledMessages>
-					{data.dialogsPage.messages.map(message => (
+					{store._data.dialogsPage.messages.map(message => (
 						<Message message={message.message} />
 					))}
 				</StyledMessages>

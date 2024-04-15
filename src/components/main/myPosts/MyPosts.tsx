@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { data } from '../../redux/data'
+import { store } from '../../redux/data'
 import { Post } from './post/Post'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useRef } from 'react'
 
 type MainPropsType = {
 	postText: string
@@ -12,6 +12,8 @@ type MainPropsType = {
 
 export const MyPosts = ({ postText, addPost, updatePostText }: MainPropsType) => {
 	
+	const newPostText = useRef()
+
 	const addNewPost = () => {
 		addPost(postText);
 	}
@@ -26,7 +28,7 @@ export const MyPosts = ({ postText, addPost, updatePostText }: MainPropsType) =>
 			<textarea value={postText} onChange={onPostChangeHandler} />
 			<StyledAddPostButton onClick={addNewPost}>New Post</StyledAddPostButton>
 			<div>
-				{data.profilePage.posts.map(post => (
+				{store._data.profilePage.posts.map(post => (
 					<Post
 						key={post.id}
 						message={post.message}

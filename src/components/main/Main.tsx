@@ -9,11 +9,19 @@ type MainPagePropsType = {
 	updatePostText: (newText: string) => void
 }
 
-export const Main = ({ postText, addPost, updatePostText}: MainPagePropsType) => {
+export const Main = ({
+	postText,
+	addPost,
+	updatePostText,
+}: MainPagePropsType) => {
 	return (
 		<StyledMain>
 			<ProfileInfo />
-			<MyPosts  postText={postText} addPost={addPost} updatePostText={updatePostText} />
+			<MyPosts
+				postText={postText}
+				addPost={addPost}
+				updatePostText={updatePostText}
+			/>
 		</StyledMain>
 	)
 }

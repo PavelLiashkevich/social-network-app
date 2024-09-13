@@ -4,7 +4,7 @@ import { FlexContainer } from './components/FlexContainer'
 import { Sidebar } from './components/sidebar/Sidebar'
 import { Main } from './components/main/Main'
 import { Dialogs } from './components/dialogs/Dialogs'
-import { Error } from './components/error/Error'
+// import { Error } from './components/error/Error'
 
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { PATH } from '../src/components/sidebar/Sidebar'

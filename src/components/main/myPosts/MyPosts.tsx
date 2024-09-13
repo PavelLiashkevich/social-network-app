@@ -12,7 +12,7 @@ type MainPropsType = {
 
 export const MyPosts = ({ postText, addPost, updatePostText }: MainPropsType) => {
 	
-	const newPostText = useRef()
+	// const newPostText = useRef()
 
 	const addNewPost = () => {
 		addPost(postText);
